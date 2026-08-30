@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+    margin: 0;
+    background: transparent;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    background: #101a2d;
+    border: 1px solid #243653;
+    border-radius: 20px;
+    padding: 28px;
+    color: white;
+}
+
+.label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #7185a5;
+}
+
+.amount {
+    font-size: 38px;
+    font-weight: 700;
+    margin-top: 22px;
+}
+
+.status {
+    font-size: 16px;
+    margin-top: 12px;
+    color: #00d7ae;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="label">
+        AVAILABLE BALANCE
+    </div>
+
+    <div class="amount">
+        $1,250.00
+    </div>
+
+    <div class="status">
+        ↗ Ready to withdraw
+    </div>
+
+</div>
+
+</body>
+</html>
