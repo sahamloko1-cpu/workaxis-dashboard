@@ -1,61 +1,336 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
 
-<style>
-body {
-    margin: 0;
-    background: transparent;
-    font-family: Arial, sans-serif;
-}
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+  >
 
-.card {
-    background: #101a2d;
-    border: 1px solid #243653;
-    border-radius: 20px;
-    padding: 28px;
-    color: white;
-}
+  <title>WORKAXIS Dashboard</title>
 
-.label {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    color: #7185a5;
-}
+  <style>
 
-.amount {
-    font-size: 38px;
-    font-weight: 700;
-    margin-top: 22px;
-}
+    /* ========================================
+       RESET
+    ======================================== */
 
-.status {
-    font-size: 16px;
-    margin-top: 12px;
-    color: #00d7ae;
-}
-</style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+
+      background: #050b17;
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+    }
+
+
+    /* ========================================
+       DASHBOARD CONTAINER
+    ======================================== */
+
+    .dashboard {
+      width: 100%;
+      max-width: 100%;
+      padding: 14px;
+    }
+
+
+    /* ========================================
+       CARD
+    ======================================== */
+
+    .card {
+      position: relative;
+
+      width: 100%;
+      max-width: 100%;
+
+      background: #0d182b;
+
+      border: 1px solid #263a57;
+      border-radius: 18px;
+
+      padding: 26px 24px;
+
+      margin: 0 0 20px 0;
+
+      overflow: hidden;
+    }
+
+
+    /* ========================================
+       CARD LABEL
+    ======================================== */
+
+    .label {
+      margin: 0;
+
+      color: #7185a5;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      letter-spacing: 1.4px;
+
+      line-height: 1.4;
+
+      text-transform: uppercase;
+    }
+
+
+    /* ========================================
+       MONEY
+    ======================================== */
+
+    .amount {
+      margin-top: 20px;
+
+      color: #f5f7ff;
+
+      font-size: clamp(30px, 9vw, 40px);
+      font-weight: 700;
+
+      line-height: 1.1;
+
+      letter-spacing: 0.5px;
+
+      white-space: nowrap;
+    }
+
+
+    /* ========================================
+       STATUS
+    ======================================== */
+
+    .status {
+      margin-top: 14px;
+
+      color: #00d7ae;
+
+      font-size: 16px;
+      font-weight: 500;
+
+      line-height: 1.4;
+    }
+
+
+    /* ========================================
+       SECONDARY DESCRIPTION
+    ======================================== */
+
+    .description {
+      margin-top: 14px;
+
+      color: #7185a5;
+
+      font-size: 15px;
+      font-weight: 400;
+
+      line-height: 1.5;
+    }
+
+
+    /* ========================================
+       ICON
+    ======================================== */
+
+    .icon {
+      position: absolute;
+
+      top: 20px;
+      right: 20px;
+
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 12px;
+
+      font-size: 21px;
+    }
+
+
+    .wallet-icon {
+      color: #7886ff;
+      background: #1c2855;
+    }
+
+
+    .clock-icon {
+      color: #ffc107;
+      background: #3a3020;
+    }
+
+
+    .income-icon {
+      color: #00d7ae;
+      background: #063c38;
+    }
+
+
+    /* ========================================
+       REFERRAL CARD
+    ======================================== */
+
+    .referral-text {
+      margin-top: 14px;
+
+      color: #93a6c5;
+
+      font-size: 16px;
+
+      line-height: 1.55;
+    }
+
+
+    /* ========================================
+       MOBILE
+    ======================================== */
+
+    @media (max-width: 480px) {
+
+      .dashboard {
+        padding: 12px;
+      }
+
+      .card {
+        padding: 24px 20px;
+        border-radius: 17px;
+      }
+
+      .amount {
+        font-size: clamp(29px, 10vw, 38px);
+      }
+
+      .icon {
+        width: 40px;
+        height: 40px;
+
+        top: 18px;
+        right: 18px;
+      }
+
+    }
+
+  </style>
 </head>
+
 
 <body>
 
-<div class="card">
+  <main class="dashboard">
 
-    <div class="label">
-        AVAILABLE BALANCE
-    </div>
 
-    <div class="amount">
+    <!-- AVAILABLE BALANCE -->
+
+    <section class="card">
+
+      <div class="icon wallet-icon">
+        ▣
+      </div>
+
+      <div class="label">
+        Available Balance
+      </div>
+
+      <div class="amount">
         $1,250.00
-    </div>
+      </div>
 
-    <div class="status">
+      <div class="status">
         ↗ Ready to withdraw
-    </div>
+      </div>
 
-</div>
+    </section>
+
+
+
+    <!-- PENDING INCOME -->
+
+    <section class="card">
+
+      <div class="icon clock-icon">
+        ◷
+      </div>
+
+      <div class="label">
+        Pending Income
+      </div>
+
+      <div class="amount">
+        $0.00
+      </div>
+
+      <div class="description">
+        0 active tasks in pipeline
+      </div>
+
+    </section>
+
+
+
+    <!-- INCOME THIS MONTH -->
+
+    <section class="card">
+
+      <div class="icon income-icon">
+        ↗
+      </div>
+
+      <div class="label">
+        Income This Month
+      </div>
+
+      <div class="amount">
+        $760.00
+      </div>
+
+      <div class="description">
+        Completed tasks only
+      </div>
+
+    </section>
+
+
+
+    <!-- REFERRAL -->
+
+    <section class="card">
+
+      <div class="label">
+        Referral Code
+      </div>
+
+      <div class="referral-text">
+        Share your code to invite new members.
+        <br>
+        Earn bonuses when they complete their first task.
+      </div>
+
+    </section>
+
+
+  </main>
 
 </body>
 </html>
