@@ -1,259 +1,465 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
 
+<head>
+  <meta charset="UTF-8">
+
+  <!-- IMPORTANT FOR MOBILE -->
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
-  />
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <title>Workaxis Dashboard Cards</title>
+  <title>WorkAxis Dashboard</title>
 
   <style>
-    * {
+
+    /* ========================================
+       RESET
+    ======================================== */
+
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
     }
 
     html,
     body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      max-width: 100%;
-      min-width: 0;
-      overflow-x: hidden;
-      font-family: Arial, Helvetica, sans-serif;
+      margin: 0 !important;
+      padding: 0 !important;
+
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+
+      overflow-x: hidden !important;
+
       background: transparent;
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
     }
 
-    body {
-      display: block;
-    }
+
+    /* ========================================
+       MAIN CONTAINER
+    ======================================== */
 
     .dashboard-container {
-      width: 100%;
-      max-width: 100%;
-      min-width: 0;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
+
+      /*
+        IMPORTANT:
+        Slightly smaller than Jotform iframe.
+
+        This prevents the right side from
+        being cut off on mobile.
+      */
+
+      width: calc(100% - 20px) !important;
+      max-width: calc(100% - 20px) !important;
+
+      min-width: 0 !important;
+
+      margin-left: auto !important;
+      margin-right: auto !important;
+
+      padding: 0 !important;
+
+      overflow-x: hidden !important;
     }
+
+
+    /* ========================================
+       DASHBOARD CARDS
+    ======================================== */
 
     .dashboard-card {
-      width: 100%;
-      max-width: 100%;
-      min-width: 0;
 
-      background: #0c1b2d;
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+
+      margin: 0 0 12px 0 !important;
+
+      padding: 20px !important;
+
+      background: #0b1c2e;
+
       border-radius: 14px;
 
-      padding: 20px;
-      margin: 0 0 12px 0;
+      overflow: hidden !important;
 
-      overflow: hidden;
+      box-sizing: border-box !important;
     }
 
-    .dashboard-card:last-child {
-      margin-bottom: 0;
-    }
+
+    /* ========================================
+       CARD TITLE
+    ======================================== */
 
     .card-title {
+
       margin: 0 0 14px 0;
 
-      color: #8ca3c2;
+      color: #91a7c7;
 
       font-size: 12px;
+
       font-weight: 700;
+
       letter-spacing: 1.5px;
+
       line-height: 1.3;
 
       text-transform: uppercase;
 
       overflow-wrap: anywhere;
-      word-break: break-word;
     }
 
+
+    /* ========================================
+       MONEY
+    ======================================== */
+
     .card-amount {
+
       margin: 0;
 
       color: #ffffff;
 
       font-size: 38px;
+
       font-weight: 700;
-      line-height: 1.05;
+
+      line-height: 1.1;
 
       overflow-wrap: anywhere;
-      word-break: break-word;
     }
 
+
+    /* ========================================
+       GREEN STATUS
+    ======================================== */
+
     .card-status {
+
       margin-top: 14px;
 
-      color: #00d5b5;
+      color: #00d7b5;
 
       font-size: 14px;
+
       font-weight: 600;
+
       line-height: 1.4;
 
       overflow-wrap: anywhere;
     }
 
+
+    /* ========================================
+       DESCRIPTION
+    ======================================== */
+
     .card-description {
+
       margin-top: 12px;
 
-      color: #8295b2;
+      color: #8398b7;
 
       font-size: 14px;
+
       line-height: 1.5;
 
       overflow-wrap: anywhere;
-      word-break: break-word;
     }
 
+
+    /* ========================================
+       REFERRAL CODE
+    ======================================== */
+
     .referral-code {
-      margin-top: 14px;
 
       display: inline-block;
 
+      max-width: 100%;
+
+      margin-top: 14px;
+
       padding: 8px 12px;
 
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255,255,255,0.08);
+
       border-radius: 8px;
 
       color: #ffffff;
 
       font-size: 15px;
+
       font-weight: 700;
+
       letter-spacing: 1px;
 
-      max-width: 100%;
-
       overflow-wrap: anywhere;
-      word-break: break-word;
     }
 
-    /* TABLETS */
+
+
+    /* ========================================
+       TABLET
+    ======================================== */
+
     @media screen and (max-width: 768px) {
-      .dashboard-card {
-        padding: 18px;
-        border-radius: 12px;
-      }
-
-      .card-amount {
-        font-size: 34px;
-      }
-    }
-
-    /* MOBILE */
-    @media screen and (max-width: 600px) {
-      html,
-      body {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-
-        overflow-x: hidden !important;
-      }
 
       .dashboard-container {
+
+        width: calc(100% - 20px) !important;
+
+        max-width: calc(100% - 20px) !important;
+
+      }
+
+
+      .dashboard-card {
+
+        padding: 18px !important;
+
+        border-radius: 12px;
+
+      }
+
+
+      .card-amount {
+
+        font-size: 34px;
+
+      }
+
+    }
+
+
+
+    /* ========================================
+       MOBILE
+    ======================================== */
+
+    @media screen and (max-width: 600px) {
+
+      html,
+      body {
+
         width: 100% !important;
+
         max-width: 100% !important;
+
         min-width: 0 !important;
 
         margin: 0 !important;
+
         padding: 0 !important;
 
         overflow-x: hidden !important;
+
       }
 
-      .dashboard-card {
-        width: 100% !important;
-        max-width: 100% !important;
+
+      .dashboard-container {
+
+        /*
+          24px smaller than iframe.
+          Gives roughly 12px space
+          on left and right.
+        */
+
+        width: calc(100% - 24px) !important;
+
+        max-width: calc(100% - 24px) !important;
+
         min-width: 0 !important;
+
+        margin-left: auto !important;
+
+        margin-right: auto !important;
+
+        padding: 0 !important;
+
+      }
+
+
+      .dashboard-card {
+
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        min-width: 0 !important;
+
+        margin-left: 0 !important;
+
+        margin-right: 0 !important;
+
+        margin-bottom: 10px !important;
 
         padding: 16px !important;
 
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        margin-bottom: 10px !important;
-
         border-radius: 11px;
 
-        overflow: hidden !important;
       }
+
 
       .card-title {
+
         font-size: 10px;
+
         letter-spacing: 1.3px;
+
         margin-bottom: 11px;
+
       }
 
+
       .card-amount {
+
         font-size: 30px;
+
       }
+
 
       .card-status {
+
         margin-top: 11px;
+
         font-size: 12px;
+
       }
+
 
       .card-description {
+
         margin-top: 10px;
+
         font-size: 12px;
+
         line-height: 1.45;
+
       }
+
 
       .referral-code {
+
         font-size: 13px;
+
         padding: 7px 10px;
+
       }
+
     }
 
-    /* SMALL PHONES */
+
+
+    /* ========================================
+       SMALL MOBILE
+    ======================================== */
+
     @media screen and (max-width: 400px) {
-      .dashboard-card {
-        padding: 14px !important;
+
+      .dashboard-container {
+
+        width: calc(100% - 20px) !important;
+
+        max-width: calc(100% - 20px) !important;
+
       }
+
+
+      .dashboard-card {
+
+        padding: 14px !important;
+
+      }
+
 
       .card-amount {
+
         font-size: 27px;
+
       }
 
+
       .card-title {
+
         font-size: 9px;
+
       }
+
 
       .card-status,
       .card-description {
+
         font-size: 11px;
+
       }
+
     }
 
-    /* VERY SMALL PHONES */
+
+
+    /* ========================================
+       VERY SMALL MOBILE
+    ======================================== */
+
     @media screen and (max-width: 320px) {
-      .dashboard-card {
-        padding: 12px !important;
+
+      .dashboard-container {
+
+        width: calc(100% - 16px) !important;
+
+        max-width: calc(100% - 16px) !important;
+
       }
+
+
+      .dashboard-card {
+
+        padding: 12px !important;
+
+      }
+
 
       .card-amount {
+
         font-size: 24px;
+
       }
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
+
   <div class="dashboard-container">
 
-    <!-- AVAILABLE BALANCE -->
+
+    <!-- ==========================
+         AVAILABLE BALANCE
+    =========================== -->
+
     <div class="dashboard-card">
+
       <div class="card-title">
-        Available Balance 00123
+        Available Balance 2026
       </div>
 
       <div class="card-amount">
@@ -263,11 +469,17 @@
       <div class="card-status">
         ↗ Ready to withdraw
       </div>
+
     </div>
 
 
-    <!-- PENDING INCOME -->
+
+    <!-- ==========================
+         PENDING INCOME
+    =========================== -->
+
     <div class="dashboard-card">
+
       <div class="card-title">
         Pending Income
       </div>
@@ -279,11 +491,17 @@
       <div class="card-description">
         0 active tasks in pipeline
       </div>
+
     </div>
 
 
-    <!-- INCOME THIS MONTH -->
+
+    <!-- ==========================
+         INCOME THIS MONTH
+    =========================== -->
+
     <div class="dashboard-card">
+
       <div class="card-title">
         Income This Month
       </div>
@@ -295,11 +513,17 @@
       <div class="card-description">
         Completed tasks only
       </div>
+
     </div>
 
 
-    <!-- REFERRAL CODE -->
+
+    <!-- ==========================
+         REFERRAL
+    =========================== -->
+
     <div class="dashboard-card">
+
       <div class="card-title">
         Referral Code
       </div>
@@ -312,9 +536,13 @@
       <div class="referral-code">
         WORKAXIS1250
       </div>
+
     </div>
+
 
   </div>
 
+
 </body>
+
 </html>
