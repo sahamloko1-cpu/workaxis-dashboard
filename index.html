@@ -1,361 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8" />
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
-<title>WorkAxis Dashboard</title>
+  <title>WorkAxis Dashboard</title>
 
-<style>
+  <script src="https://js.jotform.com/JotFormCustomWidget.min.js"></script>
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
 
-html,
-body {
-    margin: 0;
-    padding: 0;
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      overflow-x: hidden;
 
-    width: 100%;
-    max-width: 100%;
-
-    overflow-x: hidden;
-
-    background: transparent;
-
-    font-family:
+      font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
+        Roboto,
         Arial,
         sans-serif;
-}
 
+      background: transparent;
+    }
 
-/* ===============================
-   IMPORTANT JOTFORM FIX
-================================ */
-
-.dashboard-container {
-
-    /*
-      Do NOT use 100%.
-      Jotform clips part of the iframe
-      on the right in mobile view.
-    */
-
-    width: calc(100% - 65px);
-
-    max-width: calc(100% - 65px);
-
-    margin-left: 12px;
-    margin-right: 0;
-
-    padding: 0;
-
-    overflow: hidden;
-}
-
-
-/* ===============================
-   CARDS
-================================ */
-
-.dashboard-card {
-
-    width: 100%;
-    max-width: 100%;
-
-    margin: 0 0 12px 0;
-
-    padding: 20px;
-
-    background: #0b1d30;
-
-    border-radius: 14px;
-
-    overflow: hidden;
-}
-
-
-/* ===============================
-   TITLE
-================================ */
-
-.card-title {
-
-    margin-bottom: 14px;
-
-    color: #91a8c8;
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-    letter-spacing: 1.6px;
-
-    line-height: 1.3;
-
-    text-transform: uppercase;
-}
-
-
-/* ===============================
-   AMOUNT
-================================ */
-
-.card-amount {
-
-    color: white;
-
-    font-size: 38px;
-
-    font-weight: 700;
-
-    line-height: 1.1;
-}
-
-
-/* ===============================
-   STATUS
-================================ */
-
-.card-status {
-
-    margin-top: 14px;
-
-    color: #00d9bc;
-
-    font-size: 14px;
-
-    font-weight: 600;
-}
-
-
-/* ===============================
-   DESCRIPTION
-================================ */
-
-.card-description {
-
-    margin-top: 12px;
-
-    color: #879bb9;
-
-    font-size: 14px;
-
-    line-height: 1.5;
-}
-
-
-/* ===============================
-   REFERRAL
-================================ */
-
-.referral-code {
-
-    display: inline-block;
-
-    margin-top: 14px;
-
-    padding: 8px 12px;
-
-    max-width: 100%;
-
-    background: rgba(255,255,255,0.08);
-
-    border-radius: 8px;
-
-    color: white;
-
-    font-weight: 700;
-}
-
-
-/* ===============================
-   MOBILE
-================================ */
-
-@media screen and (max-width: 600px) {
+    body {
+      padding: 0;
+    }
 
     .dashboard-container {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
 
-        /*
-         This is intentionally narrower
-         because Jotform is cutting off
-         roughly 40–50px from the right.
-        */
+      padding: 8px;
+      margin: 0;
 
-        width: calc(100% - 70px);
-
-        max-width: calc(100% - 70px);
-
-        margin-left: 10px;
-        margin-right: 0;
+      overflow-x: hidden;
     }
 
     .dashboard-card {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
 
-        width: 100%;
+      padding: 20px;
+      margin: 0 0 12px 0;
 
-        padding: 16px;
+      background: #0b1d30;
+      border-radius: 14px;
 
-        margin-bottom: 10px;
+      overflow: hidden;
+    }
 
-        border-radius: 12px;
+    .dashboard-card:last-child {
+      margin-bottom: 0;
     }
 
     .card-title {
+      margin: 0 0 14px 0;
 
-        font-size: 10px;
+      color: #91a8c8;
 
-        margin-bottom: 11px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      line-height: 1.3;
+      text-transform: uppercase;
+
+      overflow-wrap: anywhere;
     }
 
     .card-amount {
+      margin: 0;
 
-        font-size: 30px;
+      color: #ffffff;
+
+      font-size: clamp(28px, 7vw, 38px);
+      font-weight: 700;
+      line-height: 1.1;
+
+      overflow-wrap: anywhere;
     }
 
     .card-status {
+      margin-top: 14px;
 
-        font-size: 12px;
+      color: #00d9bc;
 
-        margin-top: 11px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4;
+
+      overflow-wrap: anywhere;
     }
 
     .card-description {
+      margin-top: 12px;
 
+      color: #879bb9;
+
+      font-size: 14px;
+      line-height: 1.5;
+
+      overflow-wrap: anywhere;
+    }
+
+    .referral-code {
+      display: inline-block;
+
+      max-width: 100%;
+
+      margin-top: 14px;
+      padding: 8px 12px;
+
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+
+      color: #ffffff;
+
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+
+      overflow-wrap: anywhere;
+    }
+
+    @media screen and (max-width: 600px) {
+      .dashboard-container {
+        padding: 6px;
+      }
+
+      .dashboard-card {
+        padding: 16px;
+        margin-bottom: 10px;
+        border-radius: 12px;
+      }
+
+      .card-title {
+        font-size: 10px;
+        margin-bottom: 11px;
+      }
+
+      .card-amount {
+        font-size: 30px;
+      }
+
+      .card-status {
         font-size: 12px;
+        margin-top: 11px;
+      }
 
+      .card-description {
+        font-size: 12px;
         margin-top: 10px;
+      }
+
+      .referral-code {
+        font-size: 12px;
+      }
     }
 
-}
-
-
-/* ===============================
-   SMALL PHONES
-================================ */
-
-@media screen and (max-width: 400px) {
-
-    .dashboard-container {
-
-        width: calc(100% - 75px);
-
-        max-width: calc(100% - 75px);
-
-        margin-left: 8px;
-    }
-
-    .dashboard-card {
-
+    @media screen and (max-width: 360px) {
+      .dashboard-card {
         padding: 14px;
-    }
+      }
 
-    .card-amount {
-
+      .card-amount {
         font-size: 27px;
+      }
     }
-
-}
-
-</style>
+  </style>
 </head>
-
 
 <body>
 
-<div class="dashboard-container">
-
-
-    <!-- AVAILABLE BALANCE -->
+  <div class="dashboard-container" id="dashboard">
 
     <div class="dashboard-card">
+      <div class="card-title">
+        Available Balance 2028
+      </div>
 
-        <div class="card-title">
-            Available Balance 2023
-        </div>
+      <div class="card-amount">
+        $1,250.00
+      </div>
 
-        <div class="card-amount">
-            $1,250.00
-        </div>
-
-        <div class="card-status">
-            ↗ Ready to withdraw
-        </div>
-
+      <div class="card-status">
+        ↗ Ready to withdraw
+      </div>
     </div>
 
 
-
-    <!-- PENDING INCOME -->
-
     <div class="dashboard-card">
+      <div class="card-title">
+        Pending Income
+      </div>
 
-        <div class="card-title">
-            Pending Income
-        </div>
+      <div class="card-amount">
+        $0.00
+      </div>
 
-        <div class="card-amount">
-            $0.00
-        </div>
-
-        <div class="card-description">
-            0 active tasks in pipeline
-        </div>
-
+      <div class="card-description">
+        0 active tasks in pipeline
+      </div>
     </div>
 
 
-
-    <!-- INCOME THIS MONTH -->
-
     <div class="dashboard-card">
+      <div class="card-title">
+        Income This Month
+      </div>
 
-        <div class="card-title">
-            Income This Month
-        </div>
+      <div class="card-amount">
+        $760.00
+      </div>
 
-        <div class="card-amount">
-            $760.00
-        </div>
-
-        <div class="card-description">
-            Completed tasks only
-        </div>
-
+      <div class="card-description">
+        Completed tasks only
+      </div>
     </div>
 
 
-
-    <!-- REFERRAL -->
-
     <div class="dashboard-card">
+      <div class="card-title">
+        Referral Code
+      </div>
 
-        <div class="card-title">
-            Referral Code
-        </div>
+      <div class="card-description">
+        Share your code to invite new members.
+        Earn bonuses when they complete their first task.
+      </div>
 
-        <div class="card-description">
-            Share your code to invite new members.
-            Earn bonuses when they complete their first task.
-        </div>
-
-        <div class="referral-code">
-            WORKAXIS1250
-        </div>
-
+      <div class="referral-code">
+        WORKAXIS1250
+      </div>
     </div>
 
+  </div>
 
-</div>
+
+  <script>
+    /*
+      Resize the Jotform iframe automatically
+      based on the actual content size.
+    */
+
+    function resizeJotformWidget() {
+
+      const dashboard =
+        document.getElementById("dashboard");
+
+      if (!dashboard) return;
+
+      const height =
+        Math.ceil(
+          document.documentElement.scrollHeight
+        );
+
+      const width =
+        Math.ceil(
+          document.documentElement.clientWidth
+        );
+
+      /*
+        Only run this when the page
+        is actually loaded as a Jotform
+        Custom Widget.
+      */
+
+      if (
+        typeof JFCustomWidget !== "undefined" &&
+        typeof JFCustomWidget.requestFrameResize === "function"
+      ) {
+
+        JFCustomWidget.requestFrameResize({
+          width: width,
+          height: height
+        });
+
+      }
+    }
+
+
+    /*
+      Jotform's recommended ready event
+    */
+
+    if (typeof JFCustomWidget !== "undefined") {
+
+      JFCustomWidget.subscribe(
+        "ready",
+        function () {
+
+          resizeJotformWidget();
+
+          setTimeout(
+            resizeJotformWidget,
+            200
+          );
+
+          setTimeout(
+            resizeJotformWidget,
+            700
+          );
+
+        }
+      );
+
+    }
+
+
+    /*
+      Resize whenever the browser/
+      iframe dimensions change
+    */
+
+    window.addEventListener(
+      "resize",
+      resizeJotformWidget
+    );
+
+
+    /*
+      Resize once everything is loaded
+    */
+
+    window.addEventListener(
+      "load",
+      function () {
+
+        resizeJotformWidget();
+
+        setTimeout(
+          resizeJotformWidget,
+          300
+        );
+
+      }
+    );
+
+
+    /*
+      Detect content-size changes
+    */
+
+    if ("ResizeObserver" in window) {
+
+      const observer =
+        new ResizeObserver(function () {
+
+          resizeJotformWidget();
+
+        });
+
+      observer.observe(
+        document.getElementById("dashboard")
+      );
+
+    }
+  </script>
 
 </body>
 </html>
