@@ -1,261 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1, viewport-fit=cover"
->
+  <!-- VERY IMPORTANT FOR MOBILE -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>WorkAxis Dashboard</title>
-
-<style>
-
-* {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    margin: 0;
-    padding: 0;
-
-    width: 100%;
-    max-width: 100%;
-
-    overflow-x: hidden;
-
-    background: transparent;
-
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Arial,
-        sans-serif;
-}
-
-
-/* MAIN AREA */
-
-.dashboard {
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  padding: 0;
-}
-
-.card {
-  width: 100%;
-  max-width: none;
-  margin: 0 0 18px 0;
-  padding: 24px 22px;
-
-  background: #0D182B;
-  border: 1px solid #263A57;
-  border-radius: 18px;
-
-  box-sizing: border-box;
-}
-
-
-/* LABEL */
-
-.label {
-    margin: 0;
-
-    color: #8396b7;
-
-    font-size: 13px;
-    font-weight: 700;
-
-    letter-spacing: 1.4px;
-    line-height: 1.4;
-
-    text-transform: uppercase;
-
-    overflow-wrap: anywhere;
-}
-
-
-/* LARGE AMOUNT */
-
-.amount {
-    margin-top: 18px;
-
-    color: #f5f7ff;
-
-    font-size: clamp(30px, 8vw, 40px);
-    font-weight: 700;
-
-    line-height: 1.15;
-
-    overflow-wrap: anywhere;
-}
-
-
-/* GREEN STATUS */
-
-.status {
-    margin-top: 13px;
-
-    color: #00d7ae;
-
-    font-size: 16px;
-    font-weight: 500;
-
-    line-height: 1.4;
-
-    overflow-wrap: anywhere;
-}
-
-
-/* NORMAL DESCRIPTION */
-
-.description {
-    margin-top: 12px;
-
-    color: #8396b7;
-
-    font-size: 15px;
-
-    line-height: 1.5;
-
-    white-space: normal;
-
-    overflow-wrap: anywhere;
-    word-break: normal;
-}
-
-
-/* SMALLER PHONES */
-
-@media screen and (max-width: 430px) {
-
-    .dashboard {
-        width: 30%;
+  <style>
+    * {
+      box-sizing: border-box;
     }
 
-    .card {
-        padding: 21px 18px;
-        border-radius: 16px;
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+      background: transparent;
     }
 
-    .amount {
-        font-size: 32px;
+    /* Main wrapper */
+    .dashboard-container {
+      width: 100%;
+      max-width: 100%;
+      padding: 10px;
+      margin: 0 auto;
     }
 
-    .status {
-        font-size: 15px;
+    /* Each dashboard card */
+    .dashboard-card {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+
+      background: #0d1b2f;
+      border-radius: 14px;
+
+      padding: 22px;
+      margin-bottom: 14px;
+
+      overflow: hidden;
     }
 
-    .description {
-        font-size: 14px;
-    }
-}
+    .card-title {
+      margin: 0 0 15px;
+      color: #8fa5c6;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
 
-
-/* VERY SMALL PHONES */
-
-@media screen and (max-width: 350px) {
-
-    .dashboard {
-        width: 30%;
+      overflow-wrap: anywhere;
     }
 
-    .amount {
-        font-size: 28px;
+    .card-amount {
+      margin: 0;
+      color: white;
+      font-size: clamp(28px, 8vw, 40px);
+      font-weight: 700;
+      line-height: 1.1;
+
+      overflow-wrap: anywhere;
     }
 
-}
+    .card-description {
+      margin-top: 12px;
+      color: #8397b5;
+      font-size: 14px;
+      line-height: 1.5;
 
-</style>
+      overflow-wrap: anywhere;
+    }
+
+    .withdraw {
+      margin-top: 12px;
+      color: #00d6b4;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* Mobile */
+    @media screen and (max-width: 600px) {
+
+      .dashboard-container {
+        padding: 6px;
+      }
+
+      .dashboard-card {
+        width: 100%;
+        padding: 16px;
+        margin-bottom: 10px;
+        border-radius: 12px;
+      }
+
+      .card-title {
+        font-size: 10px;
+        letter-spacing: 1.2px;
+      }
+
+      .card-amount {
+        font-size: 30px;
+      }
+
+      .card-description,
+      .withdraw {
+        font-size: 12px;
+      }
+    }
+
+    /* Very small phones */
+    @media screen and (max-width: 360px) {
+
+      .dashboard-card {
+        padding: 13px;
+      }
+
+      .card-amount {
+        font-size: 26px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="dashboard">
+  <div class="dashboard-container">
 
+    <div class="dashboard-card">
+      <div class="card-title">Available Balance</div>
 
-    <!-- AVAILABLE BALANCE -->
+      <div class="card-amount">
+        $1,250.00
+      </div>
 
-    <div class="card">
-
-        <div class="label">
-            Available Balance110
-        </div>
-
-        <div class="amount">
-            $1,250.00
-        </div>
-
-        <div class="status">
-            ↗ Ready to withdraw
-        </div>
-
+      <div class="withdraw">
+        ↗ Ready to withdraw
+      </div>
     </div>
 
 
+    <div class="dashboard-card">
+      <div class="card-title">Pending Income</div>
 
-    <!-- PENDING INCOME -->
+      <div class="card-amount">
+        $0.00
+      </div>
 
-    <div class="card">
-
-        <div class="label">
-            Pending Income
-        </div>
-
-        <div class="amount">
-            $0.00
-        </div>
-
-        <div class="description">
-            0 active tasks in pipeline
-        </div>
-
+      <div class="card-description">
+        0 active tasks in pipeline
+      </div>
     </div>
 
 
+    <div class="dashboard-card">
+      <div class="card-title">Income This Month</div>
 
-    <!-- MONTHLY INCOME -->
+      <div class="card-amount">
+        $760.00
+      </div>
 
-    <div class="card">
-
-        <div class="label">
-            Income This Month
-        </div>
-
-        <div class="amount">
-            $760.00
-        </div>
-
-        <div class="description">
-            Completed tasks only
-        </div>
-
+      <div class="card-description">
+        Completed tasks only
+      </div>
     </div>
 
 
+    <div class="dashboard-card">
+      <div class="card-title">
+        Referral Code
+      </div>
 
-    <!-- REFERRAL -->
-
-    <div class="card">
-
-        <div class="label">
-            Referral Code
-        </div>
-
-        <div class="description">
-            Share your code to invite new members.
-            Earn bonuses when they complete their first task.
-        </div>
-
+      <div class="card-description">
+        Share your code to invite new members.
+        Earn bonuses when they complete their first task.
+      </div>
     </div>
 
-
-</div>
+  </div>
 
 </body>
 </html>
